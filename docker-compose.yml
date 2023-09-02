@@ -1,0 +1,15 @@
+version: '3 '
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app/db.sqlite3
+    depends_on:
+      - db
+  db:
+    image: postgres:latest
+    environment:
+      - ENGINE=django.db.backends.sqlite3
+        - NAME=/app/db.sqlite3

@@ -1,0 +1,13 @@
+<!-- card/delete_confirm.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Подтвердите удаление карты</h2>
+  <p>Вы уверены, что хотите удалить карту "{{ card.name }}"?</p>
+  <form method="post" action="{% url 'card-delete' card.id %}">
+    {% csrf_token %}
+    <button type="submit">Удалить</button>
+    <a href="{% url 'card-list' %}">Отмена</a>
+  </form>
+{% endblock %}

@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список покупок</title>
+</head>
+<body>
+    <h1>Список покупок</h1>
+
+    <form method="get">
+        <input type="date" name="purchase_date" placeholder="Дата покупки">
+        <input type="text" name="card_number" placeholder="Номер карты">
+        <button type="submit">Фильтровать</button>
+    </form>
+
+    <ul>
+        {% for purchase in purchases %}
+            <li>{{ purchase.date }} - {{ purchase.amount }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

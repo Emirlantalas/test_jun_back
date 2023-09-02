@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список карт</title>
+</head>
+<body>
+    <h1>Список карт</h1>
+
+    <form method="get">
+        {{ form.as_p }}
+        <button type="submit">Искать</button>
+    </form>
+
+    <ul>
+        {% for card in cards %}
+            <li>{{ card.owner_name}} - {{ card.card_number }} - {{ card.status }}
+                {% if card.status == 'activated' %}
+                    <a href="{% url 'card-deactivate' card.id %}">Деактивировать</a>
+                {% elif card.status == 'deactivated' %}
+                    <a href="{% url 'card-activate' card.id %}">Активировать</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

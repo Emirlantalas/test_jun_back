@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>История покупок</title>
+</head>
+<body>
+    <h1>История покупок</h1>
+    <ul>
+        {% for purchase in purchases %}
+            <li>{{ purchase.seller_name }} - {{ purchase.purchase_date }} - {{ purchase.purchase_cost }}</li>
+        {% empty %}
+            <li>Нет покупок для этой карты.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

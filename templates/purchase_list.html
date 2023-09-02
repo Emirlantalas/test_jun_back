@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список покупок</title>
+</head>
+<body>
+    <h1>Список покупок</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Добавить покупку</button>
+    </form>
+    <ul>
+        {% for purchase in purchases %}
+            <li>Место покупки: {{ purchase.organization }}</li>
+            <li>Дата покупки: {{ purchase.date }}</li>
+            <li>Стоимость покупки: {{ purchase.price }}</li>
+            <li>Номер карты: {{ purchase.card.number }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

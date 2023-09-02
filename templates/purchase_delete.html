@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Удаление покупок</title>
+</head>
+<body>
+    <h1>Удаление покупок</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Удалить выбранные покупки</button>
+    </form>
+    <h2>Список покупок</h2>
+    <ul>
+        {% for purchase in purchases %}
+            <li>{{ purchase.seller_name }} - {{ purchase.purchase_date }} - {{ purchase.purchase_cost }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
